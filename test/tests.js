@@ -99,6 +99,14 @@ describe('deep-diff', function () {
       expect(diff[0].kind).to.be('E');
     });
 
+    it ('shows the property as edited when compared to an array', function () {
+      var diff = deep.diff(lhs, ['one']);
+      expect(diff).to.be.ok();
+      expect(diff.length).to.be(1);
+      expect(diff[0]).to.have.property('kind');
+      expect(diff[0].kind).to.be('E');
+    });
+
   });
 
   describe('A target that has null value', function () {
